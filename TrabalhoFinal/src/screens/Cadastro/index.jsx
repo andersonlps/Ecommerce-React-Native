@@ -3,7 +3,7 @@ import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native'
 // import {styles} from './styles';
 import { StyleSheet } from "react-native";
 
-export const Cadastro = () => {
+export const Cadastro = ({navigation}) => {
     const [usuarioNome, setUsuarioNome] = useState("")
     const [userEmail, setUserEmail] = useState("")
     const [senha, setSenha] = useState("")
@@ -22,7 +22,7 @@ export const Cadastro = () => {
             <TextInput style={styles.textImput} placeholder="    DIGITE SEU E-MAIL" onChange={setUserEmail} value={userEmail} />
             <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA" onChange={setSenha} value={senha} />
             <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA NOVAMENTE" onChange={setSenha2} value={senha2} />
-            <TouchableOpacity style={styles.buttonEntrar}><Text style={styles.textoEntrar}>Continuar</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.buttonEntrar} onPress={() => navigation.navigate('Login')}><Text style={styles.textoEntrar}>Continuar</Text></TouchableOpacity>
             {/* <TouchableOpacity style={styles.buttonCadastrar}><Text style={styles.textoCadastrar}>Não tem uma conta? Cadastre-se!</Text></TouchableOpacity> */}
         </View>
     );
