@@ -5,6 +5,7 @@ import { Login } from './src/screens/Login';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Produtos } from './src/screens/Produtos';
+import { Cadastro } from './src/screens/Cadastro';
 // import { Routes } from './src/routes';
 
 const Tab = createBottomTabNavigator();
@@ -17,6 +18,7 @@ export default function App() {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="Produtos" component={Produtos} />
+        <Tab.Screen name="Cadastro" component={Cadastro} />
       </Tab.Navigator>
     </NavigationContainer>
       <StatusBar  translucent backgroundColor="auto" />
