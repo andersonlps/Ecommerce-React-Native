@@ -17,13 +17,18 @@ export const Cadastro = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.textoCadastro}>Cadastro</Text>
+            <View style={styles.container2}>
             <Text style={styles.texto}>Criar Conta</Text>
             <TextInput style={styles.textImput} placeholder="    DIGITE SEU NOME" onChange={setUsuarioNome} value={usuarioNome} />
             <TextInput style={styles.textImput} placeholder="    DIGITE SEU E-MAIL" onChange={setUserEmail} value={userEmail} />
             <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA" onChange={setSenha} value={senha} />
             <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA NOVAMENTE" onChange={setSenha2} value={senha2} />
-            <TouchableOpacity style={styles.buttonEntrar} onPress={() => navigation.navigate('Login')}><Text style={styles.textoEntrar}>Continuar</Text></TouchableOpacity>
-            {/* <TouchableOpacity style={styles.buttonCadastrar}><Text style={styles.textoCadastrar}>Não tem uma conta? Cadastre-se!</Text></TouchableOpacity> */}
+            <TouchableOpacity style={styles.buttonEntrar}><Text style={styles.textoEntrar}>Continuar</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.buttonCadastrar} onPress={() => navigation.navigate('Login')}><Text style={styles.textoCadastrar}>Já tem uma conta? Entre!</Text></TouchableOpacity>
+            <Text style={styles.textoCondicoes}>Ao criar uma conta, você concorda com as Condições de Uso do nosso site. 
+            Por favor, verifique a Notificação de Privacidade, Notificação de Cookies e a Notificação de Anúncios 
+            Baseados em Interesse. </Text>
+            </View>
         </View>
     );
 }
@@ -35,24 +40,36 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems: 'center',
         alignContent: "center",
+        
     },
+
+    container2: {
+        width: "90%",
+        justifyContent:"center",
+        alignItems: 'center',
+        alignContent: "center",
+        borderWidth: 2,
+        borderColor: 'silver',
+    },
+
     textImput: {
         borderWidth: 1,
-        width: "70%",
+        width: "90%",
         height: 50,
         alignItems: "center",
         justifyContent: 'center',
-        marginBottom: 30
+        marginBottom: 30,
         
     },
     textoCadastro: {
-        fontSize: 30,
-        marginBottom: 30
+        fontSize: 2,
+        marginBottom: 10
     },
     texto: {
+        marginTop: 15,
         fontSize: 20,
         fontWeight: "800",
-        marginBottom: 30
+        marginBottom: 20
     },
     buttonEntrar: {
         backgroundColor: 'green',
@@ -63,10 +80,11 @@ const styles = StyleSheet.create({
     },
     buttonCadastrar: {
         backgroundColor: 'lightblue',
-        width: "90%",
-        height: 60,
+        width: "80%",
+        height: 50,
         borderRadius: 15,
     },
+
     textoEntrar: {
         padding: 15,
         textAlign: "center",
@@ -77,6 +95,12 @@ const styles = StyleSheet.create({
         padding: 15,
         textAlign: "center",
         color: '#141414',
-        fontSize: 20,
+        fontSize: 15,
+    },
+
+    textoCondicoes: {
+        padding: 15,
+        color: '#141414',
+        fontSize: 13,
     }
 });
