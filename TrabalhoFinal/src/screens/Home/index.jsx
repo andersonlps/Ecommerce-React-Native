@@ -1,11 +1,8 @@
-import { View, Text, StyleSheet, Button } from "react-native";
-import { Topo } from "../../components/Header";
-import { Footer } from "../../components/Footer";
+import { View, StyleSheet, Button } from "react-native";
 
 export const Home = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Topo />
+    <View style={styles.container}>        
       <Button title="Produtos" onPress={() => navigation.navigate("Login")} />      
     </View>
   );
@@ -13,6 +10,6 @@ export const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,    
   },
 });

@@ -1,7 +1,8 @@
-import { useState } from 'react';
 import { Text, FlatList, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles';
 import { CardProdutos } from '../../components/CardProdutos'
+import { Topo } from '../../components/Header';
+
 
 const produtos = [
     {
@@ -52,7 +53,8 @@ const produtos = [
 
 export const Produtos = () =>{
     return(  
-        <View style={styles.container}>
+        <View style={styles.container}>   
+        
             <Text style={styles.titulo}>Produtos</Text>
         <FlatList
         data={produtos}
