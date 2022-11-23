@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import {  Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles';
 
 export const Login = ({navigation}) => {

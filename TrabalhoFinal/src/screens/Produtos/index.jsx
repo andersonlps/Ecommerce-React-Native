@@ -1,7 +1,7 @@
 import { Text, FlatList, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles';
 import { CardProdutos } from '../../components/CardProdutos'
-import { Topo } from '../../components/Header';
+
 
 
 const produtos = [

@@ -13,7 +13,8 @@ export default function App() {
     <NavigationContainer>
       <StatusBar
       barStyle="dark-content"
-      backgroundColor="white"      
+      backgroundColor="white" 
+      bare     
       />
       {/* <RotasPublicas /> */}
       <RotasPrivadas />

@@ -4,10 +4,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Login } from "../screens/Login";
 import { Home } from "../screens/Home";
 import { Produtos } from "../screens/Produtos";
-import { Cadastro } from "../screens/Cadastro";
-import { Entypo, Fontisto, Feather, FontAwesome  } from "@expo/vector-icons";
+import { Contatos } from "../screens/Contatos";
+import { Entypo, Fontisto, Feather, FontAwesome } from "@expo/vector-icons";
 import { Topo } from "../components/Header";
-
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -16,10 +15,10 @@ const LoginStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Login"
+        name="Login1"
         component={Login}
         options={{ headerShown: false }}
-      />      
+      />
     </Stack.Navigator>
   );
 };
@@ -28,20 +27,19 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="Home1"
         component={Home}
-        options={{ headerTitle:()=> <Topo/>,
+        options={{
+          headerTitle: () => <Topo />,
           headerStyle: {
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
           },
-          headerTintColor: '#fff',
+          headerTintColor: "#fff",
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
           },
         }}
       />
-
-            
     </Stack.Navigator>
   );
 };
@@ -50,28 +48,25 @@ const ProdutosStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Produtos"
+        name="Produtos1"
         component={Produtos}
-        options={{ headerTitle:()=> <Topo/> }}
-      />      
+        options={{ headerTitle: () => <Topo /> }}
+      />
     </Stack.Navigator>
   );
 };
 
-
-
-const CadastroStack = () => {
+const ContatosStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Cadastro"
-        component={Cadastro}
-        options={{ headerTitle:()=> <Topo/> }}
-      />      
+        name="Contatos1"
+        component={Contatos}
+        options={{ headerTitle: () => <Topo /> }}
+      />
     </Stack.Navigator>
   );
 };
-
 
 export const RotasPrivadas = () => {
   return (
@@ -79,7 +74,7 @@ export const RotasPrivadas = () => {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: "#121212",
-          borderTopColor: "transparent",          
+          borderTopColor: "transparent",
         },
         tabBarActiveTintColor: "#fff",
         tabStyle: {
@@ -88,26 +83,24 @@ export const RotasPrivadas = () => {
         },
       }}
     >
-       <Tab.Screen
+      <Tab.Screen
         name="Login"
         component={LoginStack}
-        options={{ 
+        options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Feather name="user" size={size} color={color} />
-            
-          )
-         }}
+          ),
+        }}
       />
       <Tab.Screen
-      
         name="Home"
         component={HomeStack}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Entypo name="home" size={size} color={color} />
-          )
+          ),
         }}
       />
       <Tab.Screen
@@ -117,17 +110,17 @@ export const RotasPrivadas = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Fontisto name="shopping-store" size={size} color={color} />
-          )
+          ),
         }}
       />
       <Tab.Screen
-        name="Cadastro"
-        component={CadastroStack}
+        name="Contatos"
+        component={ContatosStack}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="group" size={size} color={color} />
-          )
+          ),
         }}
       />
     </Tab.Navigator>
