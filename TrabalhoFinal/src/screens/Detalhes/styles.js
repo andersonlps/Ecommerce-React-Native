@@ -2,33 +2,33 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: "space-between",
+        flex: 1
     },
     cardContainer: {
         flex:1,
         borderRadius: 10,
         margin: 7,
         height: 350,
-        widht:"100%",
-    
+        widht:"100%",    
     },
     nome: {
-       
+       marginTop:10,
         fontSize: 30,
-        textAlign: "center"
     },
     valor:{
+        marginTop:5,
         fontSize: 25,
-        textAlign: "center",
     },
-    textos:{
-        justifyContent: "space-around",
-        alignItems:"center",
-        height: "45%",
+    descricao:{
+        marginTop:5,
+        fontSize: 13,
+    },
+    qtd:{
+        marginTop:5,
+        fontSize: 13,
     },
     img: { 
-        height: 190,
-        width: 120,
+        height: 400,
+        width: "100%",
     }
 });

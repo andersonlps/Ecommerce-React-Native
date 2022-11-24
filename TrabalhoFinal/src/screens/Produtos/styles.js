@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     },
     titulo: {
         fontSize: 28,
-        marginTop: 20
+        marginTop: 20,
+        alignText: "center"
     }
 });

@@ -7,6 +7,7 @@ import { Produtos } from "../screens/Produtos";
 import { Contatos } from "../screens/Contatos";
 import { Entypo, Fontisto, Feather, FontAwesome } from "@expo/vector-icons";
 import { Topo } from "../components/Header";
+import { Detalhes } from "../screens/Detalhes";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,11 @@ const ProdutosStack = () => {
         name="Produtos1"
         component={Produtos}
         options={{ headerTitle: () => <Topo /> }}
+      />
+      <Stack.Screen
+        name="Detalhes"
+        component={Detalhes}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
