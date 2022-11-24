@@ -1,19 +1,30 @@
-import { useState } from 'react';
-import {  Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { styles } from './styles';
+import { useState, useContext } from 'react';
+import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import AuthContext from '../../contexts/AuthContext';
+import {styles} from './styles';
 
-export const Login = ({navigation}) => {
-    const [userName, setUserName] = useState("")
-    const [passoword, setPassoword] = useState("")
-   
+const Login = () => {
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+  const { loginContext } = useContext(AuthContext)
+
+  const handleLogin = async () => {
+    if(userName != "" && password != "") {
+      loginContext(userName, password)
+    } else {
+        alert("Preencha todos os campos")
+    }
+  }
+
     return (
         <View style={styles.container}>
             <Text style={styles.textoLogin}>Login</Text>
             <Text style={styles.texto}>Já possui uma conta?</Text>
-            <TextInput style={styles.textImput} placeholder="    DIGITE SEU E-MAIL" onChange={setUserName} value={userName} />
-            <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA" onChange={setPassoword} value={passoword} />
-            <TouchableOpacity style={styles.buttonEntrar} onPress={() => navigation.navigate('Home')}><Text style={styles.textoEntrar}>Entrar</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.buttonCadastrar} onPress={() =>   navigation.navigate('Cadastro')}><Text style={styles.textoCadastrar}>Não tem uma conta? Cadastre-se!</Text></TouchableOpacity>
+            <TextInput style={styles.textImput} placeholder="    DIGITE SEU E-MAIL" onChangeText={setUserName} value={userName} />
+            <TextInput style={styles.textImput} placeholder="    DIGITE SUA SENHA" onChangeText={setPassword} value={password} />
+            <TouchableOpacity style={styles.buttonEntrar} onPress={() =>  handleLogin()}><Text style={styles.textoEntrar}>Entrar</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.buttonCadastrar}><Text style={styles.textoCadastrar}>Não tem uma conta? Cadastre-se!</Text></TouchableOpacity>
         </View>
     );
 };
+export default Login;

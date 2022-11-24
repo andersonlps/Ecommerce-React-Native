@@ -1,7 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login } from "../screens/Login";
 import { Home } from "../screens/Home";
 import { Produtos } from "../screens/Produtos";
 import { Contatos } from "../screens/Contatos";
@@ -11,18 +10,6 @@ import { Detalhes } from "../screens/Detalhes";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
-const LoginStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Login1"
-        component={Login}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
-  );
-};
 
 const HomeStack = () => {
   return (
@@ -89,16 +76,6 @@ export const RotasPrivadas = () => {
         },
       }}
     >
-      <Tab.Screen
-        name="Login"
-        component={LoginStack}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="user" size={size} color={color} />
-          ),
-        }}
-      />
       <Tab.Screen
         name="Home"
         component={HomeStack}

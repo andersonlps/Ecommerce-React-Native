@@ -1,11 +1,10 @@
-
-import { NavigationContainer, StackActions } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { RotasPrivadas } from "./src/routes/RotasPrivadas";
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar, Image, View } from "react-native";
 import { useEffect, useState } from "react";
+import Routes from './src/routes';
+import { AuthProvider } from "./src/contexts/AuthContext";
 
-export default function App() {
+const App = () => {
 
 const [load, setLoad] = useState(true)
 function SplashScreenVideo (){
@@ -33,9 +32,12 @@ if (load){
       backgroundColor="white" 
       bare     
       />
-      {/* <RotasPublicas /> */}
-      <RotasPrivadas />
+      <AuthProvider>
+          <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 
-}
+};
+
+export default App;
