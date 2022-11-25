@@ -39,7 +39,7 @@ export const Detalhes = ({ route }) => {
             onDismiss={closeMenu}
             anchor={
               <TouchableOpacity style={styles.btnPlus} onPress={openMenu}>
-                <AntDesign name="plussquareo" size={24} color="black" />
+                <AntDesign name="infocirlceo" size={24} color="black" />
               </TouchableOpacity>
             }
           >
