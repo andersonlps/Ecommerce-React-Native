@@ -1,43 +1,29 @@
-import React from "react";
-import { View,  StyleSheet, Image, Text} from "react-native";
-import { MaterialIcons, AntDesign } from "@expo/vector-icons";
+import React, { useContext } from "react";
+import { View, Image, Text } from "react-native";
+import { MaterialIcons  } from "@expo/vector-icons";
+import AuthContext from "../../contexts/AuthContext";
+import {styles}  from './styles';
 
 export const Topo = () => {
+  const { logoutContext } = useContext(AuthContext);
   return (
-    
-      <View style={styles.header}>
-        <AntDesign name="search1" size={24} color="black" />
-        <View style={styles.ImgText}>
+    <View style={styles.header}>
+      <View style={styles.ImgText}>
         <Image
           source={require("../../assets/logo.png")}
-          style={{ width: 100, height: 50 }}/>
-          <Text style={styles.texto}>Roupas para seu bebê</Text>
-        </View>
-        <MaterialIcons name="logout" size={24} color="black" />        
+          style={{ width: 100, height: 50 }}        />
+        <Text style={styles.texto}>Roupas para seu bebê</Text>
       </View>
-    
+      <View style={styles.logout}>
+        <MaterialIcons
+          name="logout"
+          size={24}
+          color="black"
+          onPress={() => logoutContext()}
+        />
+        <Text  style={styles.textoSair}>Sair</Text>
+      </View>
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
-  header: {   
-    flexDirection: "row",
-    width:"96%",    
-    height:100,    
-    alignItems: "center",
-    justifyContent: "space-between",   
-    padding:5,  
-        
-  },
-  
-  ImgText: {
-    
-    alignItems: "center",
-    justifyContent: "center",    
-  },
-  texto: {
-    color: "#A45E4D",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
