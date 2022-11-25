@@ -12,7 +12,7 @@ export const CardProdutos = ({item}) =>{
             <Card.Content>
             <Card.Cover  source={{uri: item.imagem }} />
             <View style={styles.textos}>
-            <Title style={styles.nome}>{item.name}</Title>
+            <Title style={styles.nome}>{item.nome}</Title>
             <Title style={styles.valor}>R${item.valor}</Title>
             </View>
             </Card.Content>

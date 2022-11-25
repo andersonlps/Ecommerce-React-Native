@@ -23,6 +23,11 @@ export const Detalhes = ({ route }) => {
 
   const closeMenu = () => setVisible(false);
 
+  const deleteProd = async () => {
+    await deleteProduto(item.id)
+    navigation.goBack();
+  }
+
   return (
     <Provider style={styles.container}>
       <Card style={styles.cardContainer}>
@@ -57,8 +62,8 @@ export const Detalhes = ({ route }) => {
           <Title style={styles.valor}>R$ {item.valor}</Title>
         </Card.Content>
         <Card.Actions>
-          <Button>Editar</Button>
-          <Button onPress={() => deleteProduto()}>Excluir</Button>
+        <Button onPress={() => navigation.navigate('Atualizar', item)}>Editar</Button>
+          <Button onPress={() => deleteProd()}>Excluir</Button>
         </Card.Actions>
       </Card>
     </Provider>

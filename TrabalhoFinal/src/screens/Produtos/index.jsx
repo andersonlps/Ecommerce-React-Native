@@ -8,29 +8,28 @@ import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 export const Produtos = () => {
-  const [produtos, setProdutos] = useState([]);
   const navigation = useNavigation();
-
+  const [produtos, setProdutos] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [list, setList] = useState(produtos);
+  const [list, setList] = useState([]);
+  const [load, setLoad] = useState(true);
+
 
   const fetchData = async () => {
     const listProdutos = await getProdutos();
-    setProdutos(listProdutos);
-  };
+    await setProdutos(listProdutos);
+    setList(
+      produtos.filter((item) => {
+        return item.nome.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+      })
+    );
+  }
 
   useEffect(() => {
     fetchData();
-    if (searchText === "") {
-      setList(produtos);
-    } else {
-      setList(
-        produtos.filter((item) => {
-          return item.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
-        })
-      );
-    }
-  }, [searchText]);
+
+    navigation.addListener('focus', () => setLoad(!load))
+  }, [searchText, load, navigation]);
 
   return (
     <View style={styles.container}>
@@ -43,14 +42,14 @@ export const Produtos = () => {
         />
         <TouchableOpacity
           style={styles.btnPlus}
-          onPress={() => navigation.navigate("Cadastro")}
+          onPress={() => navigation.navigate("Cadastrar")}
         >
           <AntDesign name="plussquareo" size={24} color="black" />
         </TouchableOpacity>
       </View>
 
       <FlatList
-        data={list}
+        data={(searchText === '' ? produtos : list )}
         keyExtractor={(item) => item.id}
         numColumns={2}
         renderItem={({ item }) => <CardProdutos item={item} />}
