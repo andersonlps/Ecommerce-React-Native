@@ -56,14 +56,14 @@ export const Detalhes = ({ route }) => {
         </View>
         <Card.Content>
           <Card.Cover style={styles.img} source={{ uri: item.imagem }} />
-          <Title style={styles.nome}>{item.name}</Title>
+          <Title style={styles.nome}>{item.nome}</Title>
           <Paragraph style={styles.descricao}>{item.descricao}</Paragraph>
           <Paragraph style={styles.qtd}>Estoque: {item.qtdEstoque}</Paragraph>
           <Title style={styles.valor}>R$ {item.valor}</Title>
         </Card.Content>
         <Card.Actions>
         <Button onPress={() => navigation.navigate('Atualizar', item)}>Editar</Button>
-          <Button onPress={() => deleteProd()}>Excluir</Button>
+          <Button style={styles.botaoExcluir} onPress={() => deleteProd()}>Excluir</Button>
         </Card.Actions>
       </Card>
     </Provider>

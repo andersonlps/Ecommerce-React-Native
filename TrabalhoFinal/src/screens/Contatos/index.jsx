@@ -15,6 +15,7 @@ import dev3 from "../Contatos/imagens/gabriel.jpg";
 import dev4 from "../Contatos/imagens/poema.jpg";
 import dev5 from "../Contatos/imagens/raphaela.jpg";
 import dev6 from "../Contatos/imagens/110869576.jpg";
+import { styles } from "./styles";
 
 //import { styles } from '../Contatos/styles';
 
@@ -102,43 +103,3 @@ export const Contatos = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-
-  image: {
-    width: 120,
-    height: 120,
-    borderRadius: 125,
-    elevation: 50,
-    shadowColor: "#52006A",
-    marginBottom: 20,
-    marginTop: 20,
-  },
-
-  button: {
-    width: 300,
-    height: 50,
-    backgroundColor: "lightblue",
-    borderStyle: "solid",
-    padding: 10,
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "green",
-  },
-
-  background: {
-    justifyContent: "center",
-    resizeMode: "cover",
-    alignItems: "center",
-  },
-});

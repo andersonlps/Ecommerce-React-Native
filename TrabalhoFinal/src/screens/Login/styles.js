@@ -26,28 +26,16 @@ export const styles = StyleSheet.create({
         marginBottom: 30
     },
     buttonEntrar: {
-        backgroundColor: 'green',
-        width: "90%",
+        backgroundColor: 'lightblue',
+        width: "80%",
         height: 60,
         borderRadius: 15,
         marginBottom: 20
     },
-    buttonCadastrar: {
-        backgroundColor: 'lightblue',
-        width: "90%",
-        height: 60,
-        borderRadius: 15,
-    },
     textoEntrar: {
         padding: 15,
         textAlign: "center",
-        color: '#fff',
+        color: 'black',
         fontSize: 20
-    },
-    textoCadastrar: {
-        padding: 15,
-        textAlign: "center",
-        color: '#141414',
-        fontSize: 20,
     }
 });

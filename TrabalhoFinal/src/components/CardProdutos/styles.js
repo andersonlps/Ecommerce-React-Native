@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
         margin: 7,
         height: 350,
         widht:"100%",
-    
     },
     nome: {
        

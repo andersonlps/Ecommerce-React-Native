@@ -5,51 +5,63 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     cardContainer: {
-        flex:1,
+        flex: 1,
         borderRadius: 0,
-        // margin: 7,
+        margin: 7,
         height: "100%",
-        widht:"100%",  
-        // backgroundColor: "#000"  
+        widht: "100%",
+        borderWidth: 2,
+        backgroundColor: "#FFFFF0",
+        borderColor: "silver"
+        //backgroundColor: "#000"  
     },
     nome: {
-       marginTop:10,
+        marginTop: 10,
         fontSize: 30,
+        fontWeight: "500"
     },
-    valor:{
-        marginTop:5,
-        fontSize: 25,
+    valor: {
+        marginTop: 5,
+        fontSize: 30,
+        fontWeight: "800"
     },
-    descricao:{
-        marginTop:5,
-        fontSize: 13,
+    descricao: {
+        marginTop: 5,
+        fontSize: 20,
+        fontWeight: "500"
     },
-    qtd:{
-        marginTop:5,
-        fontSize: 13,
+    qtd: {
+        marginTop: 5,
+        fontSize: 15,
+        fontWeight: "400"
     },
-    img: { 
+    img: {
         height: 400,
         width: "100%",
     },
-    btnVoltar:{
+    btnVoltar: {
         marginLeft: 10
     },
-    btnPlus:{
+    btnPlus: {
         marginRight: 10
     },
-    header:{
+    header: {
         flexDirection: "row",
         // backgroundColor:"lightblue",
-        justifyContent:"space-between",
-        alignItems:"center",
+        justifyContent: "space-between",
+        alignItems: "center",
         height: "5%",
-        alignIems:"center",
-        marginBottom:10,
-        marginTop:3
+        alignIems: "center",
+        marginBottom: 10,
+        marginTop: 3
     },
-    info:{
+    info: {
         fontSize: 18,
-        textAlign:"center"
-    }
+        textAlign: "center"
+    },
+    // botaoExcluir: {
+    //     backgroundColor: 'lightblue',
+    //     color: 'lightblue'
+    // }
+
 });

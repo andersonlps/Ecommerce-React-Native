@@ -42,11 +42,6 @@ const Login = () => {
       >
         <Text style={styles.textoEntrar}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonCadastrar}>
-        <Text style={styles.textoCadastrar}>
-          Não tem uma conta? Cadastre-se!
-        </Text>
-      </TouchableOpacity>
     </View>
 
 

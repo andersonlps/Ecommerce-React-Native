@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ScrollView,
   Text,
@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { StyleSheet } from "react-native";
 import api from "../../services/api";
+import { styles } from "./style";
 
 export const AtualizarProdutos = ({ route }) => {
   const navigation = useNavigation();
@@ -20,10 +20,7 @@ export const AtualizarProdutos = ({ route }) => {
   const [listProdutos, setListProdutos] = useState([])
 
   const item = route.params.id;
-  console.log(item)
-  console.log(valor)
 
-  //update
   const updateProdutos = async (item) => {
     const novoProduto = {
       nome: nome,
@@ -34,7 +31,6 @@ export const AtualizarProdutos = ({ route }) => {
     };
 
     const { data } = await api.put("/produtos/" + item , novoProduto);
-    console.log(data);
       const updateProdutos = listProdutos.map(produto => {
         if(produto.id == data.id){
           return data
@@ -100,72 +96,3 @@ export const AtualizarProdutos = ({ route }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    marginLeft: 15
-  },
-
-  container2: {
-    width: "95%",
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    borderWidth: 2,
-    borderColor: "silver",
-  },
-
-  textImput: {
-    borderWidth: 1,
-    width: "90%",
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 30,
-  },
-  textoCadastro: {
-    fontSize: 2,
-    marginBottom: 10,
-  },
-  texto: {
-    marginTop: 15,
-    fontSize: 20,
-    fontWeight: "800",
-    marginBottom: 20,
-  },
-  buttonEntrar: {
-    backgroundColor: "green",
-    width: "90%",
-    height: 60,
-    borderRadius: 15,
-    marginBottom: 20,
-  },
-  buttonCadastrar: {
-    backgroundColor: "lightblue",
-    width: "80%",
-    height: 50,
-    borderRadius: 15,
-  },
-
-  textoEntrar: {
-    padding: 15,
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 20,
-  },
-  textoCadastrar: {
-    padding: 15,
-    textAlign: "center",
-    color: "#141414",
-    fontSize: 15,
-  },
-
-  textoCondicoes: {
-    padding: 15,
-    color: "#141414",
-    fontSize: 13,
-  },
-});

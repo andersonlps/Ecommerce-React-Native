@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ScrollView,
   Text,
@@ -6,9 +6,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { StyleSheet } from "react-native";
 import api from "../../services/api";
-import { newProduto } from "../../services/produto";
+import { styles } from "./style";
 
 export const CadastrarProdutos = ({ navigation }) => {
   const [nome, setNome] = useState("");
@@ -43,9 +42,8 @@ export const CadastrarProdutos = ({ navigation }) => {
     <View style={styles.container}>
 
       <ScrollView>
-        <Text style={styles.textoCadastro}>Cadastro</Text>
         <View style={styles.container2}>
-          <Text style={styles.texto}>Criar Produto</Text>
+          <Text style={styles.texto}>Cadastrar Produto</Text>
           <TextInput
             style={styles.textImput}
             placeholder="    Nome"
@@ -80,9 +78,7 @@ export const CadastrarProdutos = ({ navigation }) => {
             <Text style={styles.textoEntrar}>Cadastrar Produtos</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.buttonCadastrar}
-
-          >
+            style={styles.buttonCadastrar}>
             <Text style={styles.textoCadastrar} onPress={() => navigation.goBack()}>Cancelar</Text>
           </TouchableOpacity>
         </View>
@@ -91,73 +87,3 @@ export const CadastrarProdutos = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    marginLeft: 15
-  },
-
-  container2: {
-    width: "95%",
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    borderWidth: 2,
-    borderColor: "silver",
-  },
-
-  textImput: {
-    borderWidth: 1,
-    width: "90%",
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 30,
-  },
-  textoCadastro: {
-    fontSize: 2,
-    marginBottom: 10,
-  },
-  texto: {
-    marginTop: 15,
-    fontSize: 20,
-    fontWeight: "800",
-    marginBottom: 20,
-  },
-  buttonEntrar: {
-    backgroundColor: "green",
-    width: "90%",
-    height: 60,
-    borderRadius: 15,
-    marginBottom: 20,
-  },
-  buttonCadastrar: {
-    backgroundColor: "lightblue",
-    width: "80%",
-    height: 50,
-    borderRadius: 15,
-  },
-
-  textoEntrar: {
-    padding: 15,
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 20,
-  },
-  textoCadastrar: {
-    padding: 15,
-    textAlign: "center",
-    color: "#141414",
-    fontSize: 15,
-  },
-
-  textoCondicoes: {
-    padding: 15,
-    color: "#141414",
-    fontSize: 13,
-  },
-});
