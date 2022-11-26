@@ -31,7 +31,6 @@ export const Produtos = () => {
 
   useEffect(() => {
     fetchData();
-
     navigation.addListener('focus', () => setLoad(!load))
   }, [searchText, load, navigation]);
 

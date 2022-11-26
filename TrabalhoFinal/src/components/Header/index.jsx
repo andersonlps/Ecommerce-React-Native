@@ -10,8 +10,8 @@ export const Topo = () => {
     <View style={styles.header}>
       <View style={styles.ImgText}>
         <Image
-          source={require("../../assets/logo.png")}
-          style={{ width: 100, height: 50 }}        />
+          source={require("../../assets/logo.jpg")}
+          style={{ width: 100, height: 60 }}        />
         <Text style={styles.texto}>Roupas para seu bebê</Text>
       </View>
       <View style={styles.logout}>

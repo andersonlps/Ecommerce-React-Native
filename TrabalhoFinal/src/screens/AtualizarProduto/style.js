@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     },
   
     textImput: {
-      borderWidth: 1,
+      borderWidth: 2,
       width: "90%",
       height: 50,
       alignItems: "center",
