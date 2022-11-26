@@ -31,10 +31,16 @@ export const CadastrarProdutos = ({ navigation }) => {
       imagem: imagem
     };
 
-    const { data } = await api.post("/produtos", novoProduto);
-    setListProdutos([...listProdutos, data]);
-    console.log(data);
-    navigation.goBack();
+    try {
+      const { data } = await api.post("/produtos", novoProduto);
+      setListProdutos([...listProdutos, data]);
+      setTimeout(() => {
+        alert("Produto cadastrado com sucesso")
+      }, 2000);
+      navigation.goBack();
+    } catch (error) {
+      console.log(e)
+    }
 
   };
 
@@ -58,12 +64,14 @@ export const CadastrarProdutos = ({ navigation }) => {
           />
           <TextInput
             style={styles.textImput}
+            keyboardType="numeric"
             placeholder="    Valor"
             onChangeText={setValor}
             value={valor}
           />
           <TextInput
             style={styles.textImput}
+            keyboardType="numeric"
             placeholder="    Estoque"
             onChangeText={setQtdEstoque}
             value={qtdEstoque}

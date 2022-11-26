@@ -1,4 +1,4 @@
-import { FlatList, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, FlatList, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { CardProdutos } from "../../components/CardProdutos";
 import { getProdutos } from "../../services/produto";
@@ -7,6 +7,7 @@ import { Searchbar } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import AuthContext from "../../contexts/AuthContext";
+import Loading from "../../components/Loading";
 
 export const Produtos = () => {
   const navigation = useNavigation();
@@ -14,17 +15,13 @@ export const Produtos = () => {
   const [searchText, setSearchText] = useState("");
   const [list, setList] = useState([]);
   const [load, setLoad] = useState(true);
-  const { loading } = useContext(AuthContext)
+  const [isLoading, setIsLoading] = useState(false)
 
   const fetchData = async () => {
-    if (loading) 
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size="large" color="red" />
-      </View>
-  )
+    setIsLoading(true)
     const listProdutos = await getProdutos();
-    await setProdutos(listProdutos);
+    setProdutos(listProdutos);
+    setIsLoading(false)
     setList(
       produtos.filter((item) => {
         return item.nome.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
@@ -40,6 +37,7 @@ export const Produtos = () => {
 
   return (
     <View style={styles.container}>
+      {isLoading && <Loading />}
       <View style={styles.barraPesquisa}>
         <Searchbar
           style={styles.pesquisa}
@@ -54,9 +52,8 @@ export const Produtos = () => {
           <AntDesign name="plussquareo" size={24} color="black" />
         </TouchableOpacity>
       </View>
-
       <FlatList
-        data={(searchText === '' ? produtos : list )}
+        data={(searchText === '' ? produtos : list)}
         keyExtractor={(item) => item.id}
         numColumns={2}
         renderItem={({ item }) => <CardProdutos item={item} />}

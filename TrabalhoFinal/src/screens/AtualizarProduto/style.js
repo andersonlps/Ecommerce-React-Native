@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
       alignContent: "center",
       borderWidth: 2,
       borderColor: "black",
+      borderRadius: 10
     },
   
     textImput: {
@@ -26,6 +27,8 @@ export const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       marginBottom: 30,
+      padding: 10,
+      borderRadius: 10
     },
     texto: {
       marginTop: 15,

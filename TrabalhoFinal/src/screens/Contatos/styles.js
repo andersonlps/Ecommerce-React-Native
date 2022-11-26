@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
       alignItems: "center",
       flexDirection: "column",
       justifyContent: "center",
+      marginBottom: 15
     },
   
     image: {

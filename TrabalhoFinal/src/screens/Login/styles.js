@@ -8,12 +8,14 @@ export const styles = StyleSheet.create({
         alignContent: "center",
     },
     textImput: {
-        borderWidth: 1,
+        borderWidth: 2,
         width: "70%",
         height: 50,
         alignItems: "center",
         justifyContent: 'center',
-        marginBottom: 30
+        marginBottom: 30,
+        padding: 10,
+        borderRadius: 10
         
     },
     textoLogin: {

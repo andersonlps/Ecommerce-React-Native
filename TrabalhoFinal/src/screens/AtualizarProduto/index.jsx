@@ -1,12 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
+  ActivityIndicator,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
+import AuthContext from "../../contexts/AuthContext";
 import api from "../../services/api";
 import { styles } from "./style";
 
@@ -22,6 +24,11 @@ export const AtualizarProdutos = ({ route }) => {
   const item = route.params.id;
 
   const updateProdutos = async (item) => {
+    if (nome == "" || descricao == "" || valor == "" || qtdEstoque == "" || imagem == "") {
+      alert("Preencha todos os campos");
+      return;
+    }
+
     const novoProduto = {
       nome: nome,
       descricao: descricao,
@@ -30,19 +37,25 @@ export const AtualizarProdutos = ({ route }) => {
       imagem: imagem
     };
 
-    const { data } = await api.put("/produtos/" + item , novoProduto);
-      const updateProdutos = listProdutos.map(produto => {
-        if(produto.id == data.id){
-          return data
-        }
-        return produto
-      })
-      navigation.navigate('Produtos1')
-      setListProdutos(updateProdutos)
+    try {
+      const { data } = await api.put("/produtos/" + item , novoProduto);
+        const updateProdutos = listProdutos.map(produto => {
+          if(produto.id == data.id){
+            return data
+          }
+          return produto
+        })
+        setTimeout(() => {
+          alert("Produto atualizado com sucesso")
+        }, 2000);
+        navigation.navigate('Produtos1')
+        setListProdutos(updateProdutos)
+    } catch (error) {
+      console.log(e)
+    }
 
   }
   
-
   return (
     <View style={styles.container}>
 
@@ -71,6 +84,7 @@ export const AtualizarProdutos = ({ route }) => {
           <TextInput
             style={styles.textImput}
             placeholder="    Estoque"
+            keyboardType="numeric"
             onChangeText={setQtdEstoque}
             value={qtdEstoque}
           />

@@ -17,17 +17,17 @@ export const styles = StyleSheet.create({
     },
     nome: {
         marginTop: 10,
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: "500"
     },
     valor: {
         marginTop: 5,
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: "800"
     },
     descricao: {
         marginTop: 5,
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: "500"
     },
     qtd: {

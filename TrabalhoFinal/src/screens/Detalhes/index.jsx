@@ -24,8 +24,11 @@ export const Detalhes = ({ route }) => {
   const closeMenu = () => setVisible(false);
 
   const deleteProd = async () => {
-    await deleteProduto(item.id)
-    navigation.goBack();
+      await deleteProduto(item.id)
+      setTimeout(() => {
+        alert("Produto deletado com sucesso")
+      }, 2000);
+      navigation.goBack();
   }
 
   return (

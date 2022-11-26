@@ -9,17 +9,22 @@ export const styles = StyleSheet.create({
         flex:1,
         borderRadius: 10,
         margin: 7,
-        height: 350,
+        height: 400,
         widht:"100%",
+        borderWidth: 2,
+        backgroundColor: "#FFFFF0",
+        borderColor: "silver"
     },
     nome: {
        
-        fontSize: 30,
-        textAlign: "center"
+        fontSize: 20,
+        textAlign: "center",
+        fontWeight: "500"
     },
     valor:{
         fontSize: 25,
         textAlign: "center",
+        fontWeight: "800"
     },
     textos:{
         justifyContent: "space-around",
