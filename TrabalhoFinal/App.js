@@ -3,6 +3,7 @@ import { StatusBar, Image, View } from "react-native";
 import { useEffect, useState } from "react";
 import Routes from './src/routes';
 import { AuthProvider } from "./src/contexts/AuthContext";
+import NetworkInformation from "./src/components/NetworkInformation";
 
 const App = () => {
 
@@ -32,6 +33,7 @@ if (load){
       backgroundColor="white" 
       bare     
       />
+      <NetworkInformation/>
       <AuthProvider>
           <Routes />
       </AuthProvider>
