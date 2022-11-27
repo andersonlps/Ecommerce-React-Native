@@ -17,7 +17,12 @@ export const Produtos = () => {
   const [load, setLoad] = useState(true);
   const [isLoading, setIsLoading] = useState(false)
 
+  const zera = () => {
+    setProdutos([])
+  }
+
   const fetchData = async () => {
+    zera();
     setIsLoading(true)
     const listProdutos = await getProdutos();
     setProdutos(listProdutos);
